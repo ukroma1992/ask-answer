@@ -13,4 +13,12 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require jquery
 //= require_tree .
+
+$(function() {
+  $('#ask-button').click(function() {
+    $('#ask-form').slideToggle(300);
+    return false;
+  });
+});
