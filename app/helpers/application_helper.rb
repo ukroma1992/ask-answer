@@ -7,6 +7,10 @@ module ApplicationHelper
     end
   end
 
+  def fa_icon(icon_class) 
+    content_tag 'span', '', class: "fas fa-#{icon_class}"
+  end
+
   def pluralize(number, one, few, many, with_number = false)
     number = number.to_i
     prefix = with_number ? "#{number} " : ''

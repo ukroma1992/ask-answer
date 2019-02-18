@@ -29,5 +29,9 @@ module AskAnswer
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.time_zone = "Kyiv"
+    config.i18n.locale = :ru 
+    config.i18n.fallbacks = [:en]
   end
 end
