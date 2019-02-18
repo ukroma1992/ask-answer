@@ -1,7 +1,6 @@
 require 'openssl'
 
 class User < ApplicationRecord
-
   # Параметры работы модуля шифрования паролей
   ITERATIONS = 20000
   DIGEST = OpenSSL::Digest::SHA256.new
@@ -14,7 +13,6 @@ class User < ApplicationRecord
   validates :username, format: { with: /^[a-z0-9_-]{3,40}$/, multiline: true, message: "only allows letters, digits and underscore" }	
   validates :username, length: { in: 4..40 }
 
-
   attr_accessor :password
 
   validates_presence_of :password, on: :create
@@ -23,7 +21,6 @@ class User < ApplicationRecord
   before_save :encrypt_password
   before_validation :downcase_name, on: [ :create, :update ]
   
-
   def encrypt_password 
     if self.password.present?
       # Создаем т. н. соль - рандомная строка
@@ -51,8 +48,7 @@ class User < ApplicationRecord
 
   private
 
-    def downcase_name
-      self.username = username.downcase
-    end
-
+  def downcase_name
+    self.username = username.downcase
+  end
 end

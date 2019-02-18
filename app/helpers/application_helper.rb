@@ -8,8 +8,7 @@ module ApplicationHelper
   end
 
   def pluralize(number, one, few, many, with_number = false)
-    number = 0 if number.nil? || !number.is_a?(Numeric)
-
+    number = number.to_i
     prefix = with_number ? "#{number} " : ''
 
     return prefix + many if (number % 100).between?(11, 14)
