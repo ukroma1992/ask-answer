@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authorize_user, except: [:index, :new, :create, :show]
 
   def index 
@@ -37,6 +37,11 @@ class UsersController < ApplicationController
     else 
       render 'edit'
     end
+  end
+
+  def destroy 
+    @user.destroy
+    redirect_to root_path, notice: 'Юзер удален'
   end
 
   private 
