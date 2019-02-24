@@ -57,5 +57,9 @@
         <%= f.submit "Сохранить", class: "button button-small button-dark" %>
       </div>
     <% end %>
+
+    <br>
+
+    <h3 class="title-small">Удалить профиль: <%= link_to fa_icon("trash-alt"), user_path(@user), method: :delete, data: { confirm: "Вы уверены?" } if current_user == @user%></h3>
   </div>
 </div>
