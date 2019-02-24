@@ -11,6 +11,14 @@ module ApplicationHelper
     content_tag 'span', '', class: "fas fa-#{icon_class}"
   end
 
+  def user_bg_color(user) 
+    if user.background_color.present?
+      user.background_color  
+    else
+      "#005a55" 
+    end
+  end
+
   def pluralize(number, one, few, many, with_number = false)
     number = number.to_i
     prefix = with_number ? "#{number} " : ''

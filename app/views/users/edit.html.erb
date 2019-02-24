@@ -35,8 +35,8 @@
       </div>
 
       <div class="form-field">
-        <%= f.label :background_color, "Цвет фона вашего профиля: " %>
-        <%= f.color_field :background_color %>
+        <%= f.label :background_color, "Цвет фона вашего профиля: " %><br>
+        <%= f.color_field :background_color, value: user_bg_color(@user) %>
       </div>
 
       <div class="buffer-top-large buffer-bottom">
