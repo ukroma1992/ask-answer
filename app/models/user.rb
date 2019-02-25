@@ -13,7 +13,7 @@ class User < ApplicationRecord
   validates :email, format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }
   validates :username, format: { with: /^[a-z0-9_-]{3,40}$/, multiline: true, message: "only allows letters, digits and underscore" }	
   validates :username, length: { in: 4..40 }
-  validates :background_color, format: { with: /\A#([0-9a-f]{3}){1,2}\z/i }
+  validates :background_color, format: { with: /\A#([0-9a-f]{3}){1,2}\z/i }, allow_blank: true
 
   attr_accessor :password
 
