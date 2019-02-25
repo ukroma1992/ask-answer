@@ -5,13 +5,15 @@ class User < ApplicationRecord
   ITERATIONS = 20000
   DIGEST = OpenSSL::Digest::SHA256.new
 
-  has_many :questions
+  has_many :questions, dependent: :destroy
+  has_many :authored_questions, class_name: "Question", foreign_key: "author_id", dependent: :nullify
 
   validates :email, :username, presence: true
   validates :email, :username, uniqueness: true
   validates :email, format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }
   validates :username, format: { with: /^[a-z0-9_-]{3,40}$/, multiline: true, message: "only allows letters, digits and underscore" }	
   validates :username, length: { in: 4..40 }
+  validates :background_color, format: { with: /\A#([0-9a-f]{3}){1,2}\z/i }
 
   attr_accessor :password
 

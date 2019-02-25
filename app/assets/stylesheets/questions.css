@@ -23,7 +23,10 @@
   color: #005a55;
 }
 
-.question-answer {
+.question-author {
+  padding: 5px 0 5px 0;
+  color: #a0a0a0;
+  font-size: 16px;
 }
 
 .question-date {
