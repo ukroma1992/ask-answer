@@ -12,12 +12,14 @@
         <%= question.answer if question.answer.present? %>
       </div>
     <% end %>
-    
-    <% if question.author.present? %>
-      <div class="question-author ">
+
+    <div class="question-author">
+      <% if question.author.present? %>
         <p>Вопрос задал: <%= link_to question.author.username, user_path(question.author) %></p>
-      </div>
-    <% end %>
+      <% else %>
+        <%= 'Анонимный пользователь' %>
+      <% end %>
+    </div>
 
     <div class="question-date">
       <%= l(question.created_at, format: :short) %>
